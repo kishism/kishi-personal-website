@@ -149,23 +149,28 @@ p.subtitle {
 
   .code-block {
     color: #333;
-    padding: 6px;
+    background-color: #f8f8f8;
+    padding: 12px;
     border-radius: 5px;
     font-family: Consolas, monospace;
     user-select: text;
     cursor: text;
     max-width: 600px;
-    max-height: 20px;
-    white-space: pre-wrap;
+    overflow-x: auto;
+    white-space: pre;
   }
   
   .dark-mode .code-block {
     color: #f0f0f0;
+    background-color: #2d2d2d;
   }
 
   .dark-mode i {
     color: rgba(227, 227, 227, 0.771);
   }
   
+  .dark-mode ul li {
+    color: #f0f0f0;
+  }
   
   
