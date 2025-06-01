@@ -1,0 +1,171 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #ececec;
+    color: #282c34;
+    margin: 0;
+    padding: 0;
+}
+
+.toc {
+    border-left: 4px solid #000000;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    max-width: 300px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  .toc h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .toc li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .toc a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.2s ease;
+  }
+  
+  .toc a:hover {
+    color: #0056b3;
+  }
+  
+
+.container {
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+p.subtitle {
+    color: #616161;
+    margin-bottom: 2rem;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 2rem;
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #a6c5e6;
+}
+
+.share-post {
+    margin-top: 1.5rem;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .share-post span {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+  
+  .share-post a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .share-post a:hover {
+    color: #0056b3;
+  }
+  
+  .share-post i {
+    font-size: 1.2rem;
+  }
+  
+  .bookmark-instruction {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    margin-top: 0.75rem;
+    text-align: right;
+  }
+
+  #darkToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #darkToggle:hover {
+    background-color: #ddd;
+  }
+  
+  .dark-mode #darkToggle {
+    background-color: #222;
+    color: #f0f0f0;
+  }
+
+  body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .dark-mode a {
+    color: #90caf9;
+  }
+
+  .code-block {
+    color: #333;
+    padding: 6px;
+    border-radius: 5px;
+    font-family: Consolas, monospace;
+    user-select: text;
+    cursor: text;
+    max-width: 600px;
+    max-height: 20px;
+    white-space: pre-wrap;
+  }
+  
+  .dark-mode .code-block {
+    color: #f0f0f0;
+  }
+
+  .dark-mode i {
+    color: rgba(227, 227, 227, 0.771);
+  }
+  
+  
+  

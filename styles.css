@@ -1,0 +1,132 @@
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #ececec;
+    color: #282c34;
+    margin: 0;
+    padding: 0;
+}
+
+h3 a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  h3 a:hover {
+    color: #4c81af;
+    text-decoration: underline;
+  }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+  
+.container {
+    padding: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.container-card:nth-of-type(1) .card {
+    background-color: transparent;
+    padding: 20px;
+  }
+  
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+p.subtitle {
+    color: #616161;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    width: 600px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.container-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin: 3rem 0 1rem;
+    color: #333;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+}
+
+.footer {
+    text-align: center;
+    color: #616161;
+    margin-top: 2rem;
+}
+
+/* Error Page */
+.error-page {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  
+  .error-page h1 {
+    font-size: 5rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+  }
+  
+  .error-page .subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .back-home {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  .back-home:hover {
+    background-color: #0056b3;
+  }
+  
+  .dark-mode .error-page h1 {
+    color: #ff6b6b;
+  }
+  
+  .dark-mode .back-home {
+    background-color: #90caf9;
+    color: #000;
+  }
+  
+  
+

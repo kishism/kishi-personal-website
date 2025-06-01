@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> How to setup ERPNExt in Ubuntu via VM </title>
+
+    <link rel="stylesheet" href="blogs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> 
+      </a>
+
+      <button id="darkToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    
+      <div class="container">
+        <h1> How to setup ERPNext in Ubuntu via VM </h1>
+
+        <p> 6/4/2025 </p> <p id="reading-time"></p>
+
+        <span> 📅 May 4, 2025 </span>
+    
+        <p>
+          ERPNext is a powerful open-source ERP platform, but installing it directly on your main computer can sometimes feel daunting or risky. Especially if one is not familiar with Linux distro (Ubuntu, here), and unfortunately, ERPNext only works on Ubuntu. Using a virtual machine lets you keep your host system clean while giving ERPNext its own dedicated environment to run and grow.
+      </p>
+  
+      <p>
+          In this guide, we will walk through the step-by-step process of creating an Ubuntu VM, installing all the prerequisites, and setting up ERPNext so you can start managing your business operations.
+      </p>
+  
+      <p>
+          First, we need a virtual machine, and we'll be using <strong>Oracle VirtualBox</strong>.  
+          Download it here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener noreferrer">https://www.virtualbox.org/wiki/Downloads</a><br />
+          Pick the installer for Windows (assuming most readers here are Windows users). The installation process is straightforward and follows the usual steps.
+      </p>
+
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ubuntu22.png" alt="Ubuntu 22 LTS" style="width: 600px; height: 200px;" />
+      </div>
+      <p>
+          Next, we select a Linux distribution -- <strong>Ubuntu</strong>. Other distros, and Ubuntu flavors might work, but ERPNext is best suited with Ubuntu. Here, I recommend <strong>Ubuntu 22 LTS</strong> because it is proven to be the most stable, and as a general rule, it's always best to avoid latest versions of any software/platform.
+      </p>
+
+      <p>Download Virtual Box here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener noreferrer">https://www.virtualbox.org/wiki/Downloads</a><br /></p>
+      <p>
+          Download Ubuntu 22 LTS here: <a href="https://releases.ubuntu.com/jammy/" target="_blank" rel="noopener noreferrer">https://releases.ubuntu.com/jammy/</a>
+      </p>
+
+      <hr>
+
+      <h3>Creating Your Ubuntu Virtual Machine</h3>
+
+      <p>
+        Now that VirtualBox is installed and ready, let's create your Ubuntu virtual machine. Open VirtualBox and click <strong>New</strong> to start building your digital sandbox. Give your VM a name, like <code>Ubuntu_ERPNext</code>, set the type to <code>Linux</code>, and pick <code>Ubuntu 64-bit</code> as the version (the VM will do this automatically for you).
+      </p>
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ERPNext0.png" alt="" style="width: 600px; height: 200px; gap: 10px;" />
+      </div>
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ERPNext1.png" alt="" style="width: 600px; height: 400px; gap: 10px;" />
+      </div>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <img 
+          src="./assets/ERPNext3.png" 
+          alt="" 
+          style="width: 300px; height: 200px; float: left; margin: 0 15px 15px 0;" 
+        />
+        <p>
+          If your hostname is something like <code>Ubuntu_ERPNext</code>, change it simply to <code>Ubuntu</code> like here.
+        </p>
+        <div style="clear: both;"></div>
+      </div>
+      
+      <p>
+        Allocate at least <strong>4 GB of RAM (4096 MB)</strong>, assign <strong>2 CPU cores</strong>, and for the virtual hard disk, I’ll go with the default <strong>25 GB</strong>. Ubuntu isn’t as large as Windows, so you don’t need to worry about space here.
+      </p>
+      
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ERPNext4.png" alt="" style="width: 600px; height: 200px;" />
+      </div>
+      
+      <p>
+        For the network adapter, choose <code>Bridged Adapter</code>. This allows your VM to connect through your host machine’s network, which will be necessary when fetching resources and dependencies for ERPNext.
+      </p>
+
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ERPNext6.png" alt="" style="width: 500px; height: 300px;" />
+      </div>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <img 
+          src="./assets/ERPNext5.png" 
+          alt="" 
+          style="width: 400px; height: 200px; float: left; margin: 0 15px 15px 0;" 
+        />
+      <p>
+        Don’t forget to prioritize the hard drive in the boot order settings.
+      </p>
+      <div style="clear: both;"></div>
+      </div>
+      <p>
+        After creating the VM, click <strong>Start</strong> to boot it up. The VM should load the Ubuntu installer from the ISO you attached. If you see the GRUB menu, choose <strong>Install Ubuntu</strong> and proceed. If the VM boots directly into the Live Environment (a fully functional trial version running from the virtual USB), simply double-click the <strong>Install Ubuntu</strong> icon on the desktop to start the installation.
+      </p>
+      <div style="display: flex; justify-content: center; margin: 2rem 0;">
+        <img src="./assets/ubuntuInstaller.jpeg" alt="" style="width: 500px; height: 300px;" />
+      </div>
+      <p>
+        Follow the installer prompts to set your language, keyboard, timezone, and create your user account. When asked about installation type, select <strong>Erase disk and install Ubuntu</strong> — this affects only the VM’s virtual disk, so your main computer is safe.
+      </p>
+      <p>
+        Once you start the installation, it will take about 10 minutes to complete. After it finishes, restart the VM and log into your fresh Ubuntu system.
+      </p>
+
+      <hr>
+
+      <h3> Update Ubuntu and Install Prerequisites </h3>
+
+      <p>
+        Now that you have Ubuntu installed and running inside your VM, it’s important to make sure your system is up-to-date and ready for ERPNext.
+      </p>
+      <p>
+        Open the Terminal by pressing <strong>Ctrl + Alt + T</strong>, then run these commands to update your package lists and upgrade installed software:
+      </p>
+      <div style="display: flex; justify-content: center; margin: 2rem 0; color: rgba(0, 0, 0, 0.5);">
+        <i>
+          <span style="margin-right: 0.5rem;">
+            <i class="fas fa-circle" style="font-size: 0.6rem;"></i>
+          </span>
+          Here, if you find your terminal not opening, this is 
+          <a href="https://www.youtube.com/watch?v=6lybGuvOd_U" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">
+            the most random solution
+          </a> 
+          I found for it. You just need to change the language to something else from UK to US, vice versa.
+        </i>
+      </div>
+      
+      <pre class="code-block">
+        sudo apt update && sudo apt upgrade -y
+      </pre>
+      <p>
+        This command refreshes the package information and installs any available updates to keep your system secure and stable.
+      </p>
+
+      </div>
+    <script src="blog-post.js"></script>
+</body>
+</html>
