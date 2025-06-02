@@ -172,5 +172,22 @@ p.subtitle {
   .dark-mode ul li {
     color: #f0f0f0;
   }
+
+.dark-mode #bugDiv {
+  color: initial !important;
+}
+
+.dark-mode #bugDiv a h3 p pre hr{
+  color: initial !important;
+}
+
+.dark-mode #bugDiv ul li {
+  color: initial !important;
+}
+
+.dark-mode i.fas.fa-bug {
+  color: #c0392b !important; /* keep the bug icon color consistent */
+}
+
   
   

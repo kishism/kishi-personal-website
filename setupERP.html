@@ -58,7 +58,6 @@
           Next, we select a Linux distribution -- <strong>Ubuntu</strong>. Other distros, and Ubuntu flavors might work, but ERPNext is best suited with Ubuntu. Here, I recommend <strong>Ubuntu 22 LTS</strong> because it is proven to be the most stable with ERPNext.
       </p>
 
-      <p>Download Virtual Box here: <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener noreferrer">https://www.virtualbox.org/wiki/Downloads</a><br /></p>
       <p>
           Download Ubuntu 22 LTS here: <a href="https://releases.ubuntu.com/jammy/" target="_blank" rel="noopener noreferrer">https://releases.ubuntu.com/jammy/</a>
       </p>
@@ -314,7 +313,7 @@ bench new-site erp.local
 </p>
 
 
-<p>If not prompted automatically, you can manually set or change the password inside the MariaDB shell using:</p>
+<p>If not prompted automatically, you can manually set or change the password inside the MariaDB shell <code>(sudo mysql)</code> using:</p>
 
 <pre class="code-block">
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'your_secure_password';
@@ -357,6 +356,78 @@ bench new-site erp.local
   And with that, your ERPNext system is up and running! You can now explore features like the Point of Sale (POS) system and begin configuring your workspace to suit your business needs.
 </p>
 
+<hr>
+
+<div id="bugDiv" style="border-left: 4px solid #e74c3c; background-color: #fef3f2; padding: 1rem 1.5rem; margin-top: 3rem; border-radius: 8px;">
+  <h3 style="color: #c0392b; margin-top: 0; display: flex; align-items: center;">
+    <i class="fas fa-bug" style="margin-right: 0.5rem;"></i> Common Installation Issues
+  </h3>
+
+  <p><strong>1) “User is not in the sudoers file” error</strong></p>
+  <p>
+    If your username (e.g., <code>vboxuser</code>) isn't in the <code>sudo</code> group, you won't be able to run commands with <code>sudo</code>. To fix this, follow these steps to add yourself to the sudo group from a root shell:
+  </p>
+
+  <ol style="line-height: 1.6;">
+    <li>Reboot your system and enter the <strong>GRUB menu</strong> by pressing <kbd>Esc</kbd> or <kbd>Shift</kbd> during boot.</li>
+    <li>Select your Ubuntu entry and press <kbd>e</kbd> to edit it.</li>
+    <li>Find the line that starts with <code>linux /boot/vmlinuz</code> and add <code>init=/bin/bash</code> to the end of that line.</li>
+    <li>Press <kbd>Ctrl + X</kbd> or <kbd>F10</kbd> to boot into a root shell.</li>
+    <li>Remount the filesystem as writable:
+      <br><code>mount -o remount,rw /</code>
+    </li>
+    <li>Add your user to the <code>sudo</code> group:
+      <br><code>usermod -aG sudo vboxuser</code>
+    </li>
+    <li>(Optional but recommended) Set a root password:
+      <br><code>passwd</code>
+    </li>
+    <li>Finally, reboot the system normally:
+      <br><code>exec /sbin/init</code>
+    </li>
+  </ol>
+
+  <p><strong>After this, you should be able to use <code>sudo</code> normally with your user account.</strong></p>
+
+  <hr>
+
+  <p><strong>2) CSS Files Not Loading (404 Errors)</strong></p>
+  </h3>
+
+  <p>
+    If your ERPNext login page or site loads without any styling — just plain HTML — and your browser console or terminal shows errors like:
+  </p>
+
+  <pre style="background-color: #fdf6e3; padding: 0.75rem 1rem; border-radius: 6px; overflow-x: auto;">
+/assets/frappe/dist/css/login.bundle.620LYWTE.css - 404
+/assets/frappe/dist/css/website.bundle.TTBWK5JW.css - 404
+  </pre>
+
+  <p>
+    This happens because your site isn't running in production mode and the necessary CSS bundles haven’t been built yet.
+  </p>
+
+  <p><strong>To fix it:</strong></p>
+  <ul style="line-height: 1.6;">
+    <li>Run the following to build the required production files:
+      <br><code>bench build --production</code>
+    </li>
+    <li>Then restart the bench:
+      <br><code>bench start</code>
+    </li>
+  </ul>
+
+  <p>
+    <strong>If you still face issues</strong>, make sure your file permissions are not blocking access. Run:
+  </p>
+
+  <pre style="background-color: #fdf6e3; padding: 0.75rem 1rem; border-radius: 6px; overflow-x: auto;">
+sudo chmod 755 /home/vboxuser   # Replace with your actual username
+sudo chmod -R o+rx /home/frappe-dev
+  </pre>
+
+  <p>This ensures that the ERPNext server has permission to access your assets directory.</p>
+</div>
       </div>
     <script src="blog-post.js"></script>
 </body>
