@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> How to setup ERPNExt in Ubuntu via VM </title>
 
-    <link rel="stylesheet" href="blogs.css">
+    <link rel="stylesheet" href="/css/blogs.css">
 
-    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="../favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg" />
+    <link rel="shortcut icon" href="../favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Kishi" />
-    <link rel="manifest" href="./favicon/site.webmanifest" />
+    <link rel="manifest" href="../favicon/site.webmanifest" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -23,7 +23,7 @@
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-    <a href="index.html" class="back-link">
+    <a href="../index.html" class="back-link">
         <i class="fas fa-arrow-left"></i> 
       </a>
 
@@ -60,7 +60,7 @@
       </p>
 
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ubuntu22.png" alt="Ubuntu 22 LTS" style="width: 600px; height: 200px;" />
+        <img src="../assets/ubuntu22.png" alt="Ubuntu 22 LTS" style="width: 600px; height: 200px;" />
       </div>
       <p>
           Next, we select a Linux distribution -- <strong>Ubuntu</strong>. Other distros, and Ubuntu flavors might work, but ERPNext is best suited with Ubuntu. Here, I recommend <strong>Ubuntu 22 LTS</strong> because it is proven to be the most stable with ERPNext.
@@ -78,15 +78,15 @@
         Now that VirtualBox is installed and ready, let's create your Ubuntu virtual machine. Open VirtualBox and click <strong>New</strong> to start building your digital sandbox. Give your VM a name, like <code>Ubuntu_ERPNext</code>, set the type to <code>Linux</code>, and pick <code>Ubuntu 64-bit</code> as the version (the VM will do this automatically for you).
       </p>
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ERPNext0.png" alt="" style="width: 600px; height: 200px; gap: 10px;" />
+        <img src="../assets/ERPNext0.png" alt="" style="width: 600px; height: 200px; gap: 10px;" />
       </div>
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ERPNext1.png" alt="" style="width: 600px; height: 400px; gap: 10px;" />
+        <img src="../assets/ERPNext1.png" alt="" style="width: 600px; height: 400px; gap: 10px;" />
       </div>
 
       <div style="max-width: 700px; margin: 0 auto;">
         <img 
-          src="./assets/ERPNext3.png" 
+          src="../assets/ERPNext3.png" 
           alt="" 
           style="width: 300px; height: 200px; float: left; margin: 0 15px 15px 0;" 
         />
@@ -101,7 +101,7 @@
       </p>
       
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ERPNext4.png" alt="" style="width: 600px; height: 200px;" />
+        <img src="../assets/ERPNext4.png" alt="" style="width: 600px; height: 200px;" />
       </div>
       
       <p>
@@ -109,12 +109,12 @@
       </p>
 
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ERPNext6.png" alt="" style="width: 500px; height: 300px;" />
+        <img src="../assets/ERPNext6.png" alt="" style="width: 500px; height: 300px;" />
       </div>
 
       <div style="max-width: 700px; margin: 0 auto;">
         <img 
-          src="./assets/ERPNext5.png" 
+          src="../assets/ERPNext5.png" 
           alt="" 
           style="width: 400px; height: 200px; float: left; margin: 0 15px 15px 0;" 
         />
@@ -127,7 +127,7 @@
         After creating the VM, click <strong>Start</strong> to boot it up. The VM should load the Ubuntu installer from the ISO you attached. If you see the GRUB menu, choose <strong>Install Ubuntu</strong> and proceed. If the VM boots directly into the Live Environment (a fully functional trial version running from the virtual USB), simply double-click the <strong>Install Ubuntu</strong> icon on the desktop to start the installation.
       </p>
       <div style="display: flex; justify-content: center; margin: 2rem 0;">
-        <img src="./assets/ubuntuInstaller.jpeg" alt="" style="width: 500px; height: 300px;" />
+        <img src="../assets/ubuntuInstaller.jpeg" alt="" style="width: 500px; height: 300px;" />
       </div>
       <p>
         Follow the installer prompts to set your language, keyboard, timezone, and create your user account. When asked about installation type, select <strong>Erase disk and install Ubuntu</strong> — this affects only the VM’s virtual disk, so your main computer is safe.
@@ -436,7 +436,22 @@ sudo chmod -R o+rx /home/frappe-dev
 
   <p>This ensures that the ERPNext server has permission to access your assets directory.</p>
 </div>
+
+<div class="share-post">
+  <span>Share this posts on</span>
+  <a href="https://medium.com/new-story" target="_blank" rel="noopener" aria-label="Share on Medium">
+      <i class="fab fa-medium"></i>
+    </a>
+    <a href="https://www.linkedin.com/shareArticle?url=https://kishi-personal-website.vercel.app/data_conversion.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.reddit.com/submit?url=https://kishi-personal-website.vercel.app/data_conversion.html&title=Check+out+this+post" target="_blank" rel="noopener" aria-label="Share on Reddit">
+      <i class="fab fa-reddit"></i>
+    </a>          
+</div>
       </div>
-    <script src="blog-post.js"></script>
+
+      
+    <script src="/scripts/blog-post.js"></script>
 </body>
 </html>

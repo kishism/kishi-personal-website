@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Kishi's Personal Website",
+  "short_name": "Kishi",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
